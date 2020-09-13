@@ -22,7 +22,7 @@
 - GitHubからリポジトリをクローン
 	```
 	git clone git@github.com:ken17yama/laravel-on-docker.git
-	cd docker-laravel-handson
+	cd laravel-on-docker
 	docker-compose up -d --build
 	
 	```
