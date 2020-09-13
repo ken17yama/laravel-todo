@@ -14,7 +14,7 @@
 - 作業ディレクトリの削除
 	```
 	cd ..
-	rm -rf docker-laravel-handson
+	rm -rf laravel-on-docker
 	
 	```
 
