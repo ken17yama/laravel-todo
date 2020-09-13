@@ -15,6 +15,7 @@
 	```
 	cd ..
 	rm -rf docker-laravel-handson
+	
 	```
 
 ### 環境の再構築
@@ -23,6 +24,7 @@
 	git clone git@github.com:ken17yama/laravel-on-docker.git
 	cd docker-laravel-handson
 	docker-compose up -d --build
+	
 	```
 - Laravelインストール
 	```
