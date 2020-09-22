@@ -7,19 +7,29 @@
 ## タスク
 - [x] CRUDの動作確認
 - [x] stateの初期値をtrueにしたときにエラーが出るので解消
-- [ ] roomを作成
-- [ ] roomにメンバー登録する方法を考える
-- [ ] Routeをグループにしてmiddlewareを適応する
-- [ ] middlewareで「user_id」と「room_id」がマッチするか確認
-- [ ] middlewareで「user_id」と「room_id」がマッチするか確認する際にURLパラメータからSQLインジェクション（不正にSQLを実行）されないか確認
-- [ ] LaravelでSwaggerなどでルーティング等のエビデンスを一括管理できるか検討
-- [ ] タスクを複数選択して（一括）削除
-- [ ] タスクのアーカイブ（履歴を残す）
 - [x] userの情報の出力
-- [x] userとroom_idの紐づけ
-- [ ] 親タスクから子タスクの生成
-- [ ] タスクの階層構造での表示
+- [x] Todoの表示
+- [ ] roomを作成
+- [ ] roomの更新（名称のみ）
+- [ ] roomの削除
+- [ ] roomにメンバー登録する方法を考える
+- [ ] Todoの表示
+- [ ] Todoの階層構造での表示
+- [ ] Todoを作成
+- [ ] 親Todoから子Todoの生成
+- [ ] Todoの更新
+- [ ] Todoのアーカイブ（履歴を残す）
+- [ ] Todoの削除
+- [ ] Todoを複数選択して（一括）削除
+- [ ] Todoの作成・更新時にRoomの更新日も更新する処理
+- [x] userとroom_idの紐づけ（Modelで多対多をbelongsToMany用いて）
+- [x] Routeをグループにしてmiddlewareを適応する
+- [x] middlewareで「user_id」と「room_id」がマッチするか確認
+- [ ] middlewareで「user_id」と「room_id」がマッチするか確認する際にURLパラメータからSQLインジェクション（不正にSQLを実行）されないか確認
+- [ ] middlewareでリダイレクト時にエラー文言も送る（printでも送れた？）
+- [ ] LaravelでSwaggerなどでルーティング等のエビデンスを一括管理できるか検討
 - [ ] テストを作成して動作の検証をしてみる
+- [ ] 脆弱性について考えてみる。（テスト等できるのか）
 - [ ] AWSでの本番実装
 
 

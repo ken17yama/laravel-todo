@@ -1,0 +1,30 @@
+
+CREATE TABLE users (id int, name varchar(50));
+CREATE TABLE rooms (id int, name varchar(50));
+CREATE TABLE rooms_users (user_id int, room_id int);
+
+INSERT INTO users VALUES (1, "‚â‚Ü‚¾"), (2, "‚â‚Ü‚´‚«"), (3, "‚È‚ª‚³‚í"), (4, "‚Ü‚Â");
+
+INSERT INTO rooms VALUES (1, "‚â‚Ü‚¾‰Æ"), (2, "‚â‚Ü‚´‚«‰Æ"), (3, "——D"), (4, "—«");
+
+INSERT INTO rooms_users VALUES (1, 1), (2, 1), (2, 2), (2, 4), (3, 3), (3, 4), (4, 3), (4, 4);
+
+
+=================================================
+
+
+SELECT r.id, r.name FROM users AS u
+	INNER JOIN rooms_users AS ru ON u.id = ru.user_id
+	INNER JOIN rooms AS r ON ru.room_id = r.id
+WHERE u.id = 2;
+
+SELECT * FROM users;
+SELECT * FROM rooms;
+SELECT * FROM rooms_users;
+
+
+=================================================
+
+
+App\Models\User::find(2)->rooms()->orderBy('id')->get();
+
