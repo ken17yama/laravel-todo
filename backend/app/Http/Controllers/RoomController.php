@@ -20,15 +20,15 @@ class RoomController extends Controller
 
     public function create()
     {
-        // 必要情報のバリデーション
-
-        // Room::create($request->all());
-        // return redirect()->route('todos.index')->with('success', 'Todo created successfully.');
+        return view('room.create');
     }
 
     public function store(Request $request)
     {
-        //
+        // 必要情報のバリデーション
+
+        // Room::create($request->all());
+        // return redirect()->route('todos.index')->with('success', 'Todo created successfully.');
     }
 
     public function show($room_id)

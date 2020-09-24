@@ -34,6 +34,10 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('todos', TodoControlle
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('room')->group(function () {
     Route::get('', [RoomController::class, 'index']);
+    Route::get('create', [RoomController::class, 'create']);
+    Route::post('store', [RoomController::class, 'create']);
+    // Route::put('update', [RoomController::class, 'edit']);
+    // Route::delete('delete', [RoomController::class, 'destroy']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'room'])->prefix('room')->group(function () {
