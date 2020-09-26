@@ -13,13 +13,11 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($room_id)
     {
-        $user = Auth::user();
-        $id = Auth::id();
-        $todos = Todo::all();
+        $todos = Todo::where('room_id', $room_id)->orderBy('id', 'desc')->get();
 
-        return view('todos.index', compact('todos', 'user', 'id'));
+        return view('todo.index', compact('todos', 'room_id'));
     }
 
     /**
@@ -27,9 +25,9 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($room_id)
     {
-        return view('todos.create');
+        return view('todo.create', compact('room_id'));
     }
 
     /**
@@ -38,16 +36,17 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $room_id)
     {
         $request->validate([
             'title' => 'required',
             'state' => 'boolean',
         ]);
 
+        $request->merge(['room_id' => $room_id]);
         Todo::create($request->all());
 
-        return redirect()->route('todos.index')->with('success', 'Todo created successfully.');
+        return redirect()->route('todo.index', $room_id)->with('success', 'Todo created successfully.');
     }
 
     /**

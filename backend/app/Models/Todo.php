@@ -14,13 +14,8 @@ class Todo extends Model
 
     protected $guarded = [
         'id',
-        'room_id',
         'created_at',
         'updated_at',
-    ];
-
-    protected $attributes = [
-        'room_id' => 'default',
     ];
 
     protected $dates = [

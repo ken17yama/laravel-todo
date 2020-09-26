@@ -7,7 +7,7 @@
         <h2>Todo</h2>
       </div>
       <div class="pull-right">
-        <a class="btn btn-success" href="/todos/create" title="Create a todo"> <i class="fas fa-plus-circle"></i>
+        <a class="btn btn-success" href="{{ route('todo.create',$room_id) }}" title="Create a todo"> <i class="fas fa-plus-circle"></i>
           </a>
       </div>
     </div>

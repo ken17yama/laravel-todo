@@ -52,6 +52,7 @@ class RoomController extends Controller
     public function edit($room_id)
     {
         $room = Room::find($room_id);
+
         return view('room.edit', compact('room'));
     }
 

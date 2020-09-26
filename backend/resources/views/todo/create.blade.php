@@ -22,7 +22,7 @@
       </ul>
     </div>
   @endif
-  <form action="{{ route('todos.store') }}" method="POST" >
+  <form action="{{ route('todo.store',$room_id) }}" method="POST" >
     @csrf
 
     <div class="row">
