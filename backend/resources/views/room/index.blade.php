@@ -24,12 +24,28 @@
       <th>ルーム名</th>
       <th>ルーム詳細</th>
       <th>最終更新日</th>
+      <th></th>
     </tr>
     @foreach ($rooms as $room)
       <tr>
-        <td><a href="/room/{{$room->id}}" title="show">{{$room->name}}</a></td>
+        <td><a href="{{ route('room.show',$room->id) }}" title="show">{{$room->name}}</a></td>
         <td>{{$room->description}}</td>
         <td>{{$room->updated_at->format('Y/m/d')}}</td>
+        <td>
+          <form action="{{ route('room.destroy',$room->id) }}" method="POST">
+            <a href="{{ route('room.show',$room->id) }}" title="show">
+              <i class="fas fa-eye text-success  fa-lg"></i>
+            </a>
+            <a href="{{ route('room.edit',$room->id) }}" title="edit">
+              <i class="fas fa-edit  fa-lg"></i>
+            </a>
+            @csrf
+            @method('DELETE')
+            <button type="submit" title="delete" style="border: none; background-color:transparent;">
+              <i class="fas fa-trash fa-lg text-danger"></i>
+            </button>
+          </form>
+        </td>
       </tr>
     @endforeach
   </table>

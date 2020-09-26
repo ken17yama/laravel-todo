@@ -33,13 +33,14 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('todos', TodoControlle
 // Route::middleware(['auth:sanctum', 'verified'])->resource('room', RoomController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('room')->group(function () {
-    Route::get('', [RoomController::class, 'index']);
-    Route::get('create', [RoomController::class, 'create']);
-    Route::post('store', [RoomController::class, 'create']);
-    // Route::put('update', [RoomController::class, 'edit']);
-    // Route::delete('delete', [RoomController::class, 'destroy']);
+    Route::get('', [RoomController::class, 'index'])->name('room.index');
+    Route::get('create', [RoomController::class, 'create'])->name('room.create');
+    Route::post('store', [RoomController::class, 'store'])->name('room.store');
+    Route::get('{room_id}/edit', [RoomController::class, 'edit'])->name('room.edit');
+    Route::put('{room_id}', [RoomController::class, 'update'])->name('room.update');
+    Route::delete('{room_id}', [RoomController::class, 'destroy'])->name('room.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'room'])->prefix('room')->group(function () {
-    Route::get('{room_id}', [RoomController::class, 'show']);
+    Route::get('{room_id}', [RoomController::class, 'show'])->name('room.show');
 });
