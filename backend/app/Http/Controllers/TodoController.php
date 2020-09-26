@@ -98,9 +98,9 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($room_id, $todo_id)
     {
-        Todo::where('id', $id)->delete();
-        return redirect()->route('todos.index')->with('success', 'Todo deleted successfully.');
+        Todo::where('id', $todo_id)->delete();
+        return redirect()->route('todo.index', $room_id)->with('success', 'Todo deleted successfully.');
     }
 }

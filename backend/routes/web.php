@@ -46,4 +46,8 @@ Route::middleware(['auth:sanctum', 'verified', 'room'])->prefix('room')->group(f
     Route::get('{room_id}', [TodoController::class, 'index'])->name('todo.index');
     Route::get('{room_id}/create', [TodoController::class, 'create'])->name('todo.create');
     Route::post('{room_id}/store', [TodoController::class, 'store'])->name('todo.store');
+    Route::get('{room_id}/{todo_id}', [TodoController::class, 'show'])->name('todo.show');
+    Route::get('{room_id}/{todo_id}/edit', [TodoController::class, 'edit'])->name('todo.edit');
+    Route::put('{room_id}/{todo_id}', [TodoController::class, 'update'])->name('todo.update');
+    Route::delete('{room_id}/{todo_id}', [TodoController::class, 'destroy'])->name('todo.destroy');
 });

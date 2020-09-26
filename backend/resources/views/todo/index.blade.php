@@ -52,11 +52,11 @@
         </td>
         <td>{{$todo->parent_id}}</td>
         <td>
-          <form action="{{ route('todos.destroy',$todo->id) }}" method="POST">
-            <a href="{{ route('todos.show',$todo->id) }}" title="show">
+          <form action="{{ route('todo.destroy',[$room_id, $todo->id]) }}" method="POST">
+            <a href="{{ route('todo.show',[$room_id, $todo->id]) }}" title="show">
               <i class="fas fa-eye text-success  fa-lg"></i>
             </a>
-            <a href="{{ route('todos.edit',$todo->id) }}" title="edit">
+            <a href="{{ route('todo.edit',[$room_id, $todo->id]) }}" title="edit">
               <i class="fas fa-edit  fa-lg"></i>
             </a>
             @csrf

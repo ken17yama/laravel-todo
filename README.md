@@ -20,7 +20,7 @@
 - [ ] Todoの更新
 - [ ] Todoの更新の際にRoomの更新日も
 - [ ] Todoのアーカイブ（履歴を残す）
-- [ ] Todoの削除
+- [x] Todoの削除
 - [ ] Todoを複数選択して（一括）削除
 - [ ] Todoの作成・更新時にRoomの更新日も更新する処理
 - [x] userとroom_idの紐づけ（Modelで多対多をbelongsToMany用いて）
