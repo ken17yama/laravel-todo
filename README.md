@@ -9,14 +9,17 @@
 - [x] stateの初期値をtrueにしたときにエラーが出るので解消
 - [x] userの情報の出力
 - [x] Todoの表示
+- [ ] 表示するTodoをソートする（id, parent_id）
 - [x] Roomの作成
 - [x] Roomの更新（名称と説明と更新日）
 - [x] Roomの削除
 - [ ] Roomにメンバー登録する方法を考える
 - [x] Todoの表示
 - [ ] Todoの階層構造での表示
+- [ ] Todoの階層構造での表示（空のulが入る）
 - [x] 親Todoの作成
 - [ ] 親Todoから子Todoの生成
+- [ ] 親Todoの変更
 - [ ] Todoの更新
 - [ ] Todoの更新の際にRoomの更新日も
 - [ ] Todoのアーカイブ（履歴を残す）
@@ -30,6 +33,7 @@
 - [ ] middlewareでリダイレクト時にエラー文言も送る（printでも送れた？）
 - [ ] LaravelでSwaggerなどでルーティング等のエビデンスを一括管理できるか検討
 - [ ] テストを作成して動作の検証をしてみる
+- [ ] バリデーションもテストしたい
 - [ ] 脆弱性について考えてみる（テスト等できるのか）
 - [ ] CSRF対策を忘れていないか確認する手段を探す
 - [ ] AWSでの本番実装
@@ -44,6 +48,7 @@
 - [[Laravel, MySQL] JSON 型カラムには配列を insert する](https://qiita.com/kamikoloss/items/7d4135ce74de8b91e721)
 - [laravelでmysqlのjson型の扱いかた](https://qiita.com/haruraruru/items/bbf1392160357666a66a)
 - [【初心者向け】20分でLaravel開発環境を爆速構築するDockerハンズオン](https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4)
+- [ツリーデータを再帰処理で整形して出力する](https://qiita.com/yorozuone/items/736a3cda7264046d6f3e)
 
 ## 再構築方法
 上記の参考ページより引用メモ

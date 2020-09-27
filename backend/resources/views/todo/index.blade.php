@@ -70,4 +70,68 @@
     @endforeach
   </table>
 
+  <style>
+    li{
+        padding-left: 10px;
+    }
+  </style>
+  <div>
+    @php
+        echo('<ul>');
+        build_todo($todos, 0, 0);
+        echo('</ul>');
+
+        function build_todo($todos, $parent_id) {
+            // parent_idが残っているか判定
+            echo('<ul>');
+            foreach($todos as $todo) {
+                if ($todo->parent_id == $parent_id) {
+                    echo('<li>');
+                    echo($todo->title);
+                    build_todo($todos, $todo['id']);
+                    echo('</li>');
+                }
+            }
+            echo('</ul>');
+        }
+    @endphp
+    <p>=================================</p>
+    <p>{{ $todos }}</p>
+  </div>
+  <div>
+        <ul>
+            <li>
+            犬を飼う
+                <ul>
+                    <li>ケージを買う</li>
+                    <li>引っ越し先に申し込む
+                        <ul>
+                            <li>
+                                敷金を払う
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        お気に入りのコーギーを探す
+                        <ul>
+                            <li>
+                                ブリーダーに連絡する
+                                <ul>
+                                    <li>受け取りの方法を連絡する</li>
+                                    <li>
+                                        ブリーダーに生まれたら連絡してもらう
+                                        <ul>
+                                            <li>尻尾を切るかどうか連絡する</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+  </div>
+
 @endsection
