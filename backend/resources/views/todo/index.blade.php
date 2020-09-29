@@ -75,63 +75,26 @@
         padding-left: 10px;
     }
   </style>
+
+  <p>=================================</p>
   <div>
     @php
-        echo('<ul>');
-        build_todo($todos, 0, 0);
-        echo('</ul>');
-
-        function build_todo($todos, $parent_id) {
-            // parent_idが残っているか判定
-            echo('<ul>');
-            foreach($todos as $todo) {
-                if ($todo->parent_id == $parent_id) {
-                    echo('<li>');
-                    echo($todo->title);
-                    build_todo($todos, $todo['id']);
-                    echo('</li>');
+        function menu($data,$parent=-1) {
+            $res='';
+            foreach($data as $e) {
+                if($e['parent_id']==$parent||($parent==-1&&$e['parent_id']==0)) {
+                    $res.='<li>'.$e['title'];
+                    $sub=menu($data,$e['id']);
+                    if($sub) $res.='<ul>'.$sub.'</ul>';
+                    $res.='</li>';
                 }
             }
-            echo('</ul>');
+            return $res;
         }
+        echo('<ul>');
+        echo(menu($todos));
+        echo('</ul>');
     @endphp
-    <p>=================================</p>
-    <p>{{ $todos }}</p>
-  </div>
-  <div>
-        <ul>
-            <li>
-            犬を飼う
-                <ul>
-                    <li>ケージを買う</li>
-                    <li>引っ越し先に申し込む
-                        <ul>
-                            <li>
-                                敷金を払う
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        お気に入りのコーギーを探す
-                        <ul>
-                            <li>
-                                ブリーダーに連絡する
-                                <ul>
-                                    <li>受け取りの方法を連絡する</li>
-                                    <li>
-                                        ブリーダーに生まれたら連絡してもらう
-                                        <ul>
-                                            <li>尻尾を切るかどうか連絡する</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-        </ul>
   </div>
 
 @endsection
