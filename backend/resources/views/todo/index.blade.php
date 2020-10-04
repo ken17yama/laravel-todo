@@ -19,6 +19,63 @@
     </div>
   @endif
 
+  <style>
+    /* ----------
+    reset
+    ---------- */
+    li{
+        padding-left: 10px;
+    }
+
+
+
+    /* ----------
+    todo
+    ---------- */
+    .todo-title{
+        margin-bottom: 0;
+    }
+    .todo-display-check{
+        display: none;
+    }
+    .todo-detail{
+        height: 0;
+        visibility: hidden;
+        margin-bottom: 0;
+        font-size: .8em;
+    }
+    .todo-display-check:checked + .todo-detail{
+        height: auto;
+        visibility: visible;
+        transition: .1s;
+        margin-bottom: 10px;
+    }
+
+  </style>
+
+  <div>
+    @php
+        function aaa($data, $room_id,$parent=-1) {
+            $res='';
+            foreach($data as $e) {
+                if($e['parent_id']==$parent || ($parent==-1 && $e['parent_id']==0)) {
+                    $res.='<li>';
+                    $res.=view('todo.item', ['e' => $e, 'room_id' => $room_id]);
+                    $sub = aaa($data, $room_id, $e['id']);
+                    if($sub) $res.='<ul>'.$sub.'</ul>';
+                    $res.='</li>';
+                }
+            }
+            return $res;
+        }
+        echo('<ul>');
+        echo(aaa($todos, $room_id));
+        echo('</ul>');
+    @endphp
+  </div>
+
+
+
   <table class="table table-bordered table-responsive-lg">
     <tr>
       <th>状態</th>
@@ -26,7 +83,6 @@
       <th>詳細</th>
       <th>開始日</th>
       <th>期限日</th>
-      <th>親タスク</th>
       <th></th>
     </tr>
     @foreach ($todos as $todo)
@@ -50,7 +106,6 @@
                 {{ $todo->due_date->format('Y/m/d') }}
             @endif
         </td>
-        <td>{{$todo->parent_id}}</td>
         <td>
           <form action="{{ route('todo.destroy',[$room_id, $todo->id]) }}" method="POST">
             <a href="{{ route('todo.show',[$room_id, $todo->id]) }}" title="show">
@@ -69,32 +124,5 @@
       </tr>
     @endforeach
   </table>
-
-  <style>
-    li{
-        padding-left: 10px;
-    }
-  </style>
-
-  <p>=================================</p>
-  <div>
-    @php
-        function menu($data,$parent=-1) {
-            $res='';
-            foreach($data as $e) {
-                if($e['parent_id']==$parent||($parent==-1&&$e['parent_id']==0)) {
-                    $res.='<li>'.$e['title'];
-                    $sub=menu($data,$e['id']);
-                    if($sub) $res.='<ul>'.$sub.'</ul>';
-                    $res.='</li>';
-                }
-            }
-            return $res;
-        }
-        echo('<ul>');
-        echo(menu($todos));
-        echo('</ul>');
-    @endphp
-  </div>
 
 @endsection

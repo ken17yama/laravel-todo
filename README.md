@@ -15,8 +15,10 @@
 - [x] Roomの削除
 - [ ] Roomにメンバー登録する方法を考える
 - [x] Todoの表示
-- [ ] Todoの階層構造での表示
-- [ ] Todoの階層構造での表示（空のulが入る）
+- [x] Todoの階層構造での表示
+- [x] Todoの階層構造での表示（空のulが入るのを解消）
+- [x] Todoのテーブル表示
+- [ ] Todoのテーブル表示（テーブルの左にガントチャートのように表示）
 - [x] 親Todoの作成
 - [ ] 親Todoから子Todoの生成
 - [ ] 親Todoの変更
@@ -48,7 +50,7 @@
 - [[Laravel, MySQL] JSON 型カラムには配列を insert する](https://qiita.com/kamikoloss/items/7d4135ce74de8b91e721)
 - [laravelでmysqlのjson型の扱いかた](https://qiita.com/haruraruru/items/bbf1392160357666a66a)
 - [【初心者向け】20分でLaravel開発環境を爆速構築するDockerハンズオン](https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4)
-- [ツリーデータを再帰処理で整形して出力する](https://qiita.com/yorozuone/items/736a3cda7264046d6f3e)
+- [メニュー配列を再帰的に作成](https://stackoverrun.com/ja/q/10153699)
 
 ## 再構築方法
 上記の参考ページより引用メモ
